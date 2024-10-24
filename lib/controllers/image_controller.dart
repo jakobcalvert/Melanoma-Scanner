@@ -40,8 +40,6 @@ class ImageController extends BaseController{
   }
 
 
-
-
   Future<void> confirmImage(BuildContext context) async {
     int? confidence = await getConfidence();
     String confidenceMessage = 'Error';
