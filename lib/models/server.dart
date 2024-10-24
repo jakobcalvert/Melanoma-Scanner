@@ -24,6 +24,8 @@ class ServerManager {
   }
 
   static Future<void> connectToMongoDB() async {
+
+    final startTime = DateTime.now();
     try {
       var uri = 'mongodb://admin:admin@cluster0-shard-00-00.ehuu8.mongodb.net:27017,cluster0-shard-00-01.ehuu8.mongodb.net:27017,cluster0-shard-00-02.ehuu8.mongodb.net:27017/?ssl=true&replicaSet=atlas-ap5l5c-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0';
       _db = Db(uri);
@@ -31,26 +33,30 @@ class ServerManager {
       await _db!.open();
       print("Connected to MongoDB");
 
-      _collection = _db!.collection('your_collection_name');
+      _collection = _db!.collection('MelanomaScans');
     } catch (e) {
       print('Failed to connect to MongoDB: $e');
     }
+    final loadTime = DateTime.now().difference(startTime);
+    print('Server loaded in: ${loadTime.inMilliseconds} ms');
   }
 
   static Future<void> saveToMongoDB(File image, double? output, int? confidence) async {
+    final startTime = DateTime.now();
     try {
       final base64Image = encodeImageToBase64(image);
       var data = {
         'image': base64Image,
         'output': output,
         'confidence': confidence,
-        'timestamp': DateTime.now().toIso8601String(),
       };
       await _collection!.insert(data);
       print("Image and results saved to MongoDB");
     } catch (e) {
       print('Failed to save to MongoDB: $e');
     }
+    final runTime = DateTime.now().difference(startTime);
+    print('Image saved in: ${runTime.inMilliseconds} ms');
   }
 
   static Future<List<Map<String, dynamic>>> retrieveFromMongoDB() async {
@@ -78,6 +84,7 @@ class ServerManager {
       print('Failed to retrieve and process data from MongoDB: $e');
       return [];
     }
+
   }
 
   static String encodeImageToBase64(File imageFile) {

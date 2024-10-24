@@ -46,6 +46,8 @@ class ImageController {
   }
 
   Future<void> viewSavedResults(BuildContext context) async {
+    final startTime = DateTime.now();
+
     List<Map<String, dynamic>> savedResults = await retrieveResultsFromServer();
     List<File> images = [];
     List<Color> colors = [];
@@ -81,6 +83,8 @@ class ImageController {
         ),
       ),
     );
+    final runTime = DateTime.now().difference(startTime);
+    print('Retrieved results in: ${runTime.inMilliseconds} ms');
   }
 
   Future<void> saveResults(BuildContext context) async {

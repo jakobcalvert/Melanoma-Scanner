@@ -15,6 +15,7 @@ class ModelManager {
   ModelManager._internal();
 
   static Future<void> saveInstance() async {
+
     try {
       await ServerManager.saveToMongoDB(
           getImage(),
@@ -25,6 +26,7 @@ class ModelManager {
     } catch (e) {
       print('Error saving image and results to the server: $e');
     }
+
   }
 
   static Future<void> loadModel() async {
@@ -40,6 +42,7 @@ class ModelManager {
     } else {
       print('Model already loaded.');
     }
+
   }
 
   static Future<void> createImageModel(File imageFile) async {
