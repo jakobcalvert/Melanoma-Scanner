@@ -20,9 +20,9 @@ Steps for installing and running code
 To run application flutter must already be installed on device instructions can be found here https://docs.flutter.dev/get-started/install
 
 Steps:
-Clone github repo on device and navigate to Repo
-Ensure flutter is installed and set up properly - run command “flutter doctor” to ensure setup is correct
-Ensure a working android or iphone emulator is installed - run command “flutter devices” to make sure the device is showing up correctly. Using android studio or Xcode for emulation is recommended.
-Use the command “flutter run” to finally run the program. In the case of dependency issues run commands “flutter clean” then “flutter pub get” to ensure correct dependencies are installed and working.
+1. Clone github repo on device and navigate to Repo
+2. Ensure flutter is installed and set up properly - run command “flutter doctor” to ensure setup is correct
+3. Ensure a working android or iphone emulator is installed - run command “flutter devices” to make sure the device is showing up correctly. Using android studio or Xcode for emulation is recommended.
+4. Use the command “flutter run” to finally run the program. In the case of dependency issues run commands “flutter clean” then “flutter pub get” to ensure correct dependencies are installed and working.
 
 MongoDB server may not work due to hosting restrictions and IP blocks. Application will work without but will not have the ability to save and access previously saved images unless the server URI is swapped in the lib/model/server.dart file.
