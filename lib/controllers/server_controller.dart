@@ -8,8 +8,9 @@ import '../views/results_list_view.dart';
 import '../models/modelManager.dart';
 import '../models/server.dart';
 import '/views/home_view.dart';
+import 'base_controller.dart';
 
-class ServerController {
+class ServerController extends BaseController {
 
   Future<void> saveResultsToServer() async {
     ModelManager.saveInstance();

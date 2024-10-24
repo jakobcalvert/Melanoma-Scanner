@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fluttertest/controllers/base_controller.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import '../views/results_view.dart';
@@ -8,8 +9,10 @@ import '../views/results_list_view.dart';
 import '../models/modelManager.dart';
 import '../models/server.dart';
 import '/views/home_view.dart';
+import 'base_controller.dart';
 
-class ImageController {
+
+class ImageController extends BaseController{
   void handleImageSelection(ImageSource source, BuildContext context) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
@@ -36,18 +39,8 @@ class ImageController {
     return ModelManager.getImage();
   }
 
-  Future<void> returnHome(BuildContext context) async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HomeView(),
-      ),
-    );
-  }
 
-  void cancel(BuildContext context) {
-    Navigator.pop(context);
-  }
+
 
   Future<void> confirmImage(BuildContext context) async {
     int? confidence = await getConfidence();
