@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import '../controllers/image_controller.dart';
+import '../controllers/server_controller.dart';
 import 'styles.dart';
 
 class ResultsView extends StatelessWidget {
-  final ImageController controller;
+  final ImageController controller = ImageController();
+  final  ServerController svrController = ServerController();
   final String message;
   final Color mesColor;
   final File image;
 
-  ResultsView({required this.controller, required this.message, required this.mesColor, required this.image});
+  ResultsView({ required this.message, required this.mesColor, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +60,9 @@ class ResultsView extends StatelessWidget {
                   SizedBox(width: 20),
                   ElevatedButton(
                     style: AppStyles.elevatedButtonStyle,
-                    onPressed: controller.serverStatus()
+                    onPressed: svrController.serverStatus()
                         ? () {
-                      controller.saveResults(context);
+                      svrController.saveResults(context);
                     }
                         : null,
                     child: Text('Save Result', style: AppStyles.buttonTextStyle),

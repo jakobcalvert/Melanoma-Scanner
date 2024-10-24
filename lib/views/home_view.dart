@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import '../controllers/image_controller.dart';
+import '../controllers/server_controller.dart';
 
 class HomeView extends StatelessWidget {
-  final ImageController controller;
+  final ImageController controller = ImageController();
+  final ServerController svrController = ServerController();
 
-  HomeView({required this.controller});
+  HomeView();
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +45,9 @@ class HomeView extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               style: AppStyles.elevatedButtonStyle,
-              onPressed: controller.serverStatus()
+              onPressed: svrController.serverStatus()
                   ? () {
-                controller.viewSavedResults(context);
+                svrController.viewSavedResults(context);
               }
                   : null,
               child: Text(

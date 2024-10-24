@@ -4,10 +4,10 @@ import 'dart:io';
 import '../controllers/image_controller.dart';
 
 class ConfirmationView extends StatelessWidget {
-  final ImageController controller;
+  final ImageController controller = ImageController();
   final File image;
 
-  ConfirmationView({required this.controller, required this.image});
+  ConfirmationView({required this.image});
 
   @override
   Widget build(BuildContext context) {

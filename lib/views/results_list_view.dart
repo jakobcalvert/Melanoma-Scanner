@@ -5,13 +5,12 @@ import '../controllers/image_controller.dart';
 import 'styles.dart';
 
 class ResultsListView extends StatelessWidget {
-  final ImageController controller;
+  final ImageController controller = ImageController();
   final List<Uint8List> images;
   final List<Color> colors;
   final List<String> messages;
 
   ResultsListView({
-    required this.controller,
     required this.images,
     required this.colors,
     required this.messages,

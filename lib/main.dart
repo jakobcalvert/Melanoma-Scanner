@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertest/models/server.dart';
 import 'views/home_view.dart';
 import 'models/modelManager.dart';
-import 'controllers/image_controller.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       title: 'Melanoma Scanner',
-      home: HomeView(controller: ImageController(),),
+      home: HomeView(),
     );
   }
 }

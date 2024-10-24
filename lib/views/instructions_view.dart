@@ -4,9 +4,9 @@ import 'styles.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerView extends StatelessWidget {
-  final ImageController controller;
+  final ImageController controller = ImageController();
 
-  ImagePickerView({required this.controller});
+  ImagePickerView();
 
   @override
   Widget build(BuildContext context) {
