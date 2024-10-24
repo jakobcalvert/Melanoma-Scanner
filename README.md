@@ -13,3 +13,16 @@ Executing the model in the app in under ___ ms, implemented through the use of T
 Classifies the results into 3 different risk grades, recommending further action for high and medium-risk spots.
 - Basic saving and Retrieving Previous Diagnoses:
 Saves previous diagnoses to a MongoDB server for later retrieval and outputs all previous results onto a results screen.
+
+
+Steps for installing and running code 
+
+To run application flutter must already be installed on device instructions can be found here https://docs.flutter.dev/get-started/install
+
+Steps:
+Clone github repo on device and navigate to Repo
+Ensure flutter is installed and set up properly - run command “flutter doctor” to ensure setup is correct
+Ensure a working android or iphone emulator is installed - run command “flutter devices” to make sure the device is showing up correctly. Using android studio or Xcode for emulation is recommended.
+Use the command “flutter run” to finally run the program. In the case of dependency issues run commands “flutter clean” then “flutter pub get” to ensure correct dependencies are installed and working.
+
+MongoDB server may not work due to hosting restrictions and IP blocks. Application will work without but will not have the ability to save and access previously saved images unless the server URI is swapped in the lib/model/server.dart file.
