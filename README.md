@@ -6,9 +6,9 @@ The application developed is able to scan images of suspicious skin regions take
 - Image Selection and Capture:
 Implemented an image selection tool in Flutter that allows users to take or select an image on any platform.
 - MobileNetV2 Model:
-Trained a MobileNetV2 model on 10,000 existing skin images with known diagnoses, achieving over _____ accuracy. training code included in Repo
+Trained a MobileNetV2 model on 10,000 existing skin images with known diagnoses  being able to identify 95% of melanoma cases with medium certainty and 90% with high certainty. This feature required data preparation trialling different training techniques and evaluation of performances in the app to ensure the results were reliable and fast enough to use in the app.
 - Real-Time Model Execution and Results:
-Executing the model in the app in under ___ ms, implemented through the use of TensorFlow.
+Executing the model in the app in on average 420.6 ms, implemented through the use of TensorFlow.
 - Diagnosis Output and Results:
 Classifies the results into 3 different risk grades, recommending further action for high and medium-risk spots.
 - Basic saving and Retrieving Previous Diagnoses:
